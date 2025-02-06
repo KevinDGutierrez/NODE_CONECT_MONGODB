@@ -26,14 +26,14 @@ export const login = async (req, res) => {
             });
         }
 
-        const validPassword = await verify(password, user.password);
+        const validPassword = await verify(user.password, password);
         if (!validPassword) {
             return res.status(400).json({
                 msg: 'La contraseña es incorrecta'
             });
         }
 
-        const token = await generarJWT(usser.id);
+        const token = await generarJWT(user.id);
 
         return res.status(200).json({
             msg: '¡¡¡¡¡Inicio de Sesión exitoso!!!!!',
@@ -68,8 +68,8 @@ export const register = async (req, res) => {
         const user = await Usuario.create({
             name: data.name,
             surname: data.surname,
-            username: data.username,
-            email: data.email,
+            username: data.username.toLowerCase(),
+            email: data.email.toLowerCase(),
             phone: data.phone,
             password: encryptedPassword,
             role: data.role,
