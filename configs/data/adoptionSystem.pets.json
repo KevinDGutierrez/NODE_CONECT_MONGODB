@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "67b34b0b9f051b38e566e21f"
+  },
+  "name": "gus",
+  "description": "Pug negro",
+  "age": 1,
+  "type": "Perro",
+  "keeper": {
+    "$oid": "67b346d69f051b38e566e212"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-17T14:43:23.200Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-17T14:46:05.040Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b34bf04ecf35e9abbd59ff"
+  },
+  "name": "Kayra",
+  "description": "pug negra",
+  "age": "1",
+  "type": "Perro",
+  "email": "kevin@gmail.com",
+  "status": false,
+  "updatedAt": {
+    "$date": "2025-02-17T14:47:44.151Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b351bd718ffb69609fe335"
+  },
+  "name": "Gua",
+  "description": "pug",
+  "age": 1,
+  "type": "Perro",
+  "keeper": {
+    "$oid": "67b346d69f051b38e566e212"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-17T15:11:57.588Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-17T15:11:57.588Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b35681cb44a84d8d7f26f9"
+  },
+  "name": "max",
+  "description": "pug",
+  "age": 1,
+  "type": "Perro",
+  "keeper": {
+    "$oid": "67b346d69f051b38e566e212"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-17T15:32:17.438Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-17T15:32:17.438Z"
+  }
+}]

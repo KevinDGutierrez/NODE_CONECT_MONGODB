@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { getUsers, getUserById, updateUser, deleteUser, trueUser } from "./user.controller.js";
+import { getUsers, getUserById, updateUser, updatePassword, deleteUser, trueUser } from "./user.controller.js";
 import { existeUsuarioById } from "../helpers/db-validator.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { uploadProfilePicture } from "../middlewares/multer-upload.js";
@@ -32,6 +32,19 @@ router.put(
     updateUser
 )
 
+router.put(
+    "/password/:id",
+    
+    [
+        check("id", "No es ID válido").isMongoId(),
+        check("id").custom(existeUsuarioById),
+        check("password", "La contraseña es obligatoria y debe tener mínimo 6 caracteres").isLength({ min: 6 }),
+        validarCampos
+    ],
+    updatePassword
+);
+
+
 router.delete(
     "/:id",
     [
@@ -47,7 +60,7 @@ router.delete(
 router.delete(
     "/activate/:id",
     [
-        
+        validarJWT,
         check("id", "No es ID válido").isMongoId(),
         check("id").custom(existeUsuarioById),
         validarCampos

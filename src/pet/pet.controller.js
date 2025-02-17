@@ -14,12 +14,13 @@ export const savePet = async (req, res) => {
             })
         }
 
-        const pet = new Pet({
+        
+
+        const pet = await Pet.create({
             ...data,
+            name: data.name.toLowerCase(),
             keeper: user._id
         })
-
-        await pet.save();
 
         res.status(200).json({
             success: true,
@@ -125,11 +126,16 @@ export const deletePet = async (req, res) => {
 }
 
 export const updatePet = async (req, res) => {
-    const { id } = req.params;
-    const { _id, status,...data } = req.body;
-
+     
     try {
-        
+        const { id } = req.params;
+        const { _id, status,...data } = req.body;
+        let { name } = req.body;
+
+        if (name) {
+            name = name.toLowerCase();
+            data.name = name;
+        }
         const pet = await Pet.findByIdAndUpdate(id, data, { new: true });
 
         res.status(200).json({
